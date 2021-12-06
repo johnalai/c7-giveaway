@@ -1,0 +1,33 @@
+[
+{"providerName": "Calgary Co-Op", 
+"address": "1524 Crowfoot Rise NW",
+"city": "Calgary",
+"pickUpSpot": "West entrance",
+"products": ["bread", "cabbage", "potatoes", "squash", "spring mix"],
+"contact": "James West"
+},
+
+{"providerName": "Safeway", 
+"address": "235 Brentwood Dr NW",
+"city": "Calgary",
+"pickUpSpot": "back door",
+"products": ["brussels sprouts", "zucchini", "cucumbers", "oranges"],
+"contact": "Walter Smith"
+},
+
+{"providerName": "Sobeys", 
+"address": "25 Tuscany Blvd NW",
+"city": "Calgary",
+"pickUpSpot": "back door",
+"products": ["bananas", "carrots", "grapes", "oranges"],
+"contact": "Andrea Martin"
+},
+
+{"providerName": "Cobbs Bakery", 
+"address": "165 Marlborough Rd NE",
+"city": "Calgary",
+"pickUpSpot": "loading bay",
+"products": ["bread", "bagels"],
+"contact": "Appolo Gonzales"
+}
+]
