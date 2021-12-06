@@ -11,7 +11,7 @@ router.get('/giveAway', async (req, res) => {
 
 router.post('/giveAway', async (req, res) => {
     let newProvider = req.body
-    let createdId = await giveAwayModel.createProvider(newProvider)
+    let createdId = await giveAwayModel.createGiveAway(newProvider)
     res.send(createdId)
 })
 

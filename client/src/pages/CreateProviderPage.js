@@ -7,6 +7,7 @@ const CreateProviderPage = () => {
     let navigate = useNavigate()
 
     async function createProvider(newProvider) {
+      console.log('create provider')
         await fetch('/api/giveAway', {
           method: "POST",
           headers: {
