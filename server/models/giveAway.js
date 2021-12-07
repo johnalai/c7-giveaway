@@ -18,8 +18,8 @@ async function createGiveAway(giveAwayData) {
     return createdGiveAway.id
 }
 
-async function listGiveAways() {
-    return GiveAway.find({availible:true})
+async function listGiveAways(param) {
+    return GiveAway.find(param)
 }
 
 async function findById(id) {

@@ -1,6 +1,6 @@
 import { useNavigate } from 'react-router-dom'
 
-import ProviderEditForm from "../components/ProviderEditForm"
+import ProviderEditForm from "../components/providerComponents/ProviderEditForm"
 
 const CreateProviderPage = () => {
 

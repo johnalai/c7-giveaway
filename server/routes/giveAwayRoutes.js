@@ -4,8 +4,13 @@ const router = express.Router()
 
 const giveAwayModel = require('../models/giveAway')
 
+router.get('/admin',async (req,res) => {
+    let giveAwayList = await giveAwayModel.listGiveAways({})
+    res.send(giveAwayList)
+})
+
 router.get('/giveAway', async (req, res) => {
-    let giveAwayList = await giveAwayModel.listGiveAways()
+    let giveAwayList = await giveAwayModel.listGiveAways({availible:true})
     res.send(giveAwayList)
 })
 
