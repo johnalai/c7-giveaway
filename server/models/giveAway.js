@@ -7,7 +7,8 @@ const GiveAway = mongoose.model('GiveAway',
         "city": String,
         "pickUpSpot": String,
         "products": [String], 
-        "contact": String
+        "contact": String,
+        "availible":String
     }
 )
 
@@ -18,7 +19,7 @@ async function createGiveAway(giveAwayData) {
 }
 
 async function listGiveAways() {
-    return GiveAway.find({})
+    return GiveAway.find({availible:true})
 }
 
 async function findById(id) {

@@ -7,6 +7,7 @@ const ProviderListPage = () => {
     const navigate = useNavigate()
 
     function setSelectedProviderId(id) {
+        
         navigate('/provider/'+id)
     }
 

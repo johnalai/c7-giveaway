@@ -1,4 +1,6 @@
 import {useEffect, useState} from 'react'
+// import Checkbox from './Checkbox'
+
 
 import './ProviderDetail.css'
 
@@ -9,6 +11,8 @@ const ProviderEditForm = ({existingValues, onSave}) => {
     const [pickUpSpot, setPickUpSpot] = useState('')
     const [contact, setContact] = useState('')
     const [products, setProducts] = useState([])
+    const[availible,setAvailible]=useState(false)
+   
 
     const [productToAdd, setProductToAdd] = useState('')
 
@@ -24,13 +28,13 @@ const ProviderEditForm = ({existingValues, onSave}) => {
     }, [existingValues])
 
     function onInputUpdate(event, setter) {
-        let newValue = event.target.value
+        let newValue = event.target.value      
         setter(newValue)
     }
 
     async function postData() {
         let newProvider = {
-            providerName, address, city, contact, products, pickUpSpot
+            providerName, address, city, contact, products, pickUpSpot,availible
         }
         console.log('Saving provider', newProvider)
         await onSave(newProvider)
@@ -50,6 +54,9 @@ const ProviderEditForm = ({existingValues, onSave}) => {
         console.log('products are now', newProducts)
         setProducts(newProducts)
     }
+   
+  
+
 
     return (
         <div>
@@ -81,6 +88,12 @@ const ProviderEditForm = ({existingValues, onSave}) => {
                         <button onClick={onAddProduct}>Add Product</button>
                     </div>
                 </div>
+                {/* <Checkbox onInputUpdate={onInputUpdate} availible={availible} setAvailible={setAvailible}/> */}
+                <label className="field-title" for="cb1">Availible</label>
+                <input className="field-value" id="cb1" type ="checkbox" value={true} onChange={(event)=>(onInputUpdate(event,setAvailible))}/> 
+               
+                
+               
             </div>
             <button onClick={postData} >Save Provider</button>
             
