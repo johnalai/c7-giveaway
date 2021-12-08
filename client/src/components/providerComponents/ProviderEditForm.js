@@ -65,86 +65,90 @@ const ProviderEditForm = ({ existingValues, onSave }) => {
   return (
     <div>
       <h2>Edit Provider Details</h2>
-      <div className="detail-fields">
-        <label className="field-title">Provider Name</label>
-        {url === "/register/provider" ? (
-          <input
-            value={providerName}
-            onChange={(event) => onInputUpdate(event, setProviderName)}
-          />
-        ) : (
-          <div>{providerName}</div>
-        )}
 
-        <label className="field-title">Address</label>
-        {url === "/register/provider" ? (
-          <input
-            value={address}
-            onChange={(event) => onInputUpdate(event, setAddress)}
-          />
-        ) : (
-          <div>{address}</div>
-        )}
+      <div>
+        <div className="detail-fields">
+          <label className="field-title">Provider Name</label>
+          {url === "/register/provider" ? (
+            <input
+              value={providerName}
+              onChange={(event) => onInputUpdate(event, setProviderName)}
+            />
+          ) : (
+            <div class="field-value">{providerName}</div>
+          )}
 
-        <label className="field-title">City</label>
-        {url === "/register/provider" ? (
-          <input
-            value={city}
-            onChange={(event) => onInputUpdate(event, setCity)}
-          />
-        ) : (
-          <div>{city}</div>
+          <label className="field-title">Address</label>
+          {url === "/register/provider" ? (
+            <input
+              value={address}
+              onChange={(event) => onInputUpdate(event, setAddress)}
+            />
+          ) : (
+            <div className="field-value">{address}</div>
+          )}
+
+          <label className="field-title">City</label>
+          {url === "/register/provider" ? (
+            <input
+              value={city}
+              onChange={(event) => onInputUpdate(event, setCity)}
+            />
+          ) : (
+            <div class="field-value">{city}</div>
+          )}
+        </div>
+        {/* above is edited on the registration page */}
+        {/* below is edited on the provider edit page */}
+
+        {(url === "/provider/", { id }, "/edit") && (
+          <div className="detail-fields">
+            <label className="field-title">Contact</label>
+            <input
+              value={contact}
+              onChange={(event) => onInputUpdate(event, setContact)}
+            />
+            <label className="field-title">Pick Up Spot</label>
+            <input
+              value={pickUpSpot}
+              onChange={(event) => onInputUpdate(event, setPickUpSpot)}
+            />
+            <label className="field-title">Products</label>
+            <div className="field-value">
+              {products.map((product, index) => (
+                <div key={index}>
+                  {product}
+                  <button
+                    onClick={() => {
+                      onRemoveProduct(index);
+                    }}
+                  >
+                    x
+                  </button>
+                </div>
+              ))}
+              <div>
+                <input
+                  value={productToAdd}
+                  onChange={(event) => onInputUpdate(event, setProductToAdd)}
+                />
+                <button onClick={onAddProduct}>Add Product</button>
+              </div>
+            </div>
+
+            <label className="field-title" for="cb1">
+              Availible
+            </label>
+            <input
+              className="field-value"
+              id="cb1"
+              type="checkbox"
+              value={true}
+              onChange={(event) => onInputUpdate(event, setAvailible)}
+            />
+          </div>
         )}
       </div>
-      {/* above is edited on the registration page */}
-      {/* below is edited on the provider edit page */}
-      {(url === "/provider/", { id }, "/edit") && (
-        <div class="detail-fields">
-          <label className="field-title">Contact</label>
-          <input
-            value={contact}
-            onChange={(event) => onInputUpdate(event, setContact)}
-          />
-          <label className="field-title">Pick Up Spot</label>
-          <input
-            value={pickUpSpot}
-            onChange={(event) => onInputUpdate(event, setPickUpSpot)}
-          />
-          <label className="field-title">Products</label>
-          <div className="field-value">
-            {products.map((product, index) => (
-              <div key={index}>
-                {product}
-                <button
-                  onClick={() => {
-                    onRemoveProduct(index);
-                  }}
-                >
-                  x
-                </button>
-              </div>
-            ))}
-            <div>
-              <input
-                value={productToAdd}
-                onChange={(event) => onInputUpdate(event, setProductToAdd)}
-              />
-              <button onClick={onAddProduct}>Add Product</button>
-            </div>
-          </div>
-
-          <label className="field-title" for="cb1">
-            Availible
-          </label>
-          <input
-            className="field-value"
-            id="cb1"
-            type="checkbox"
-            value={true}
-            onChange={(event) => onInputUpdate(event, setAvailible)}
-          />
-        </div>
-      )}
 
       <button onClick={postData}>Save Provider</button>
     </div>

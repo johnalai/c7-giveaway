@@ -2,13 +2,16 @@ const mongoose = require('./mongooseDb')
 
 const GiveAway = mongoose.model('GiveAway', 
     {
-        "providerName": String, 
+        "userName": String, 
         "address": String,
         "city": String,
         "pickUpSpot": String,
         "products": [String], 
         "contact": String,
-        "availible":String
+        "availible":String,
+        "user":String,
+        "password":String,
+        "typedPassword":String
     }
 )
 
