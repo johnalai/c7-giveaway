@@ -3,19 +3,19 @@ import { useParams } from "react-router-dom";
 import "./ProviderDetail.css";
 
 const ProviderEditForm = ({ existingValues, onSave }) => {
-  const [providerName, setProviderName] = useState("");
+  const [userName, setProviderName] = useState("");
   const [address, setAddress] = useState("");
   const [city, setCity] = useState("");
   const [pickUpSpot, setPickUpSpot] = useState("");
   const [contact, setContact] = useState("");
   const [products, setProducts] = useState([]);
-  const [availible, setAvailible] = useState(false);
-
+  const [available, setAvailable] = useState(false);
   const [productToAdd, setProductToAdd] = useState("");
+  const [user,setUser] = useState("provider")
 
   useEffect(() => {
     if (existingValues) {
-      setProviderName(existingValues.providerName);
+      setProviderName(existingValues.userName);
       setAddress(existingValues.address);
       setCity(existingValues.city);
       setPickUpSpot(existingValues.pickUpSpot);
@@ -31,13 +31,14 @@ const ProviderEditForm = ({ existingValues, onSave }) => {
 
   async function postData() {
     let newProvider = {
-      providerName,
+      userName,
       address,
       city,
       contact,
       products,
       pickUpSpot,
-      availible,
+      available,
+      user
     };
     console.log("Saving provider", newProvider);
     await onSave(newProvider);
@@ -71,11 +72,11 @@ const ProviderEditForm = ({ existingValues, onSave }) => {
           <label className="field-title">Provider Name</label>
           {url === "/register/provider" ? (
             <input
-              value={providerName}
+              value={userName}
               onChange={(event) => onInputUpdate(event, setProviderName)}
             />
           ) : (
-            <div class="field-value">{providerName}</div>
+            <div class="field-value">{userName}</div>
           )}
 
           <label className="field-title">Address</label>
@@ -137,14 +138,14 @@ const ProviderEditForm = ({ existingValues, onSave }) => {
             </div>
 
             <label className="field-title" for="cb1">
-              Availible
+            Available
             </label>
             <input
               className="field-value"
               id="cb1"
               type="checkbox"
               value={true}
-              onChange={(event) => onInputUpdate(event, setAvailible)}
+              onChange={(event) => onInputUpdate(event, setAvailable)}
             />
           </div>
         )}

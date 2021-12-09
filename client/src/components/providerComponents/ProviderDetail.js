@@ -20,7 +20,7 @@ const ProviderDetail = ({providerId}) => {
         <h2>Provider Detail</h2>
         <div className="detail-fields">
           <div className="field-title">Name</div>
-          <div className="field-value">{provider?.providerName}</div>
+          <div className="field-value">{provider?.userName}</div>
           <div className="field-title">Address</div>
           <div className="field-value">{provider?.address}</div>
           <div className="field-title">City</div>

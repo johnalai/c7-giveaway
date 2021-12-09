@@ -14,8 +14,8 @@ const AdminList = ({setSelectedProviderId}) => {
     async function fetchData() {
       console.log('Fetching Provider data!')
       let fetchResult = await fetch("/api/admin")
-      let ProviderList = await fetchResult.json()
-      setProviders(ProviderList)
+      let userList = await fetchResult.json()
+      setProviders(userList)
     }
     fetchData()
   }, [])
@@ -28,7 +28,7 @@ const AdminList = ({setSelectedProviderId}) => {
 
   return (
     <div>
-      <h2>Provider List</h2>
+      <h2>User List</h2>
       <table style={{ margin: "auto" }}>
         <thead>
           <tr>
@@ -43,7 +43,7 @@ const AdminList = ({setSelectedProviderId}) => {
               return <ProviderRow 
                 key={index} 
                 onProviderSelected={() => selectProvider(provider._id)} 
-                providerName={provider.providerName} 
+                providerName={provider.userName} 
                 address={provider.address} 
                 city={provider.city} 
               />

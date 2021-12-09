@@ -1,33 +1,57 @@
 [
-{"providerName": "Calgary Co-Op", 
+{"userName": "Calgary Co-Op Crowfoot", 
 "address": "1524 Crowfoot Rise NW",
 "city": "Calgary",
 "pickUpSpot": "West entrance",
 "products": ["bread", "cabbage", "potatoes", "squash", "spring mix"],
-"contact": "James West"
+"contact": "James West",
+"available": "true",
+"user":"provider"
+
 },
 
-{"providerName": "Safeway", 
+{"userName": "Safeway Brentwood", 
 "address": "235 Brentwood Dr NW",
 "city": "Calgary",
 "pickUpSpot": "back door",
 "products": ["brussels sprouts", "zucchini", "cucumbers", "oranges"],
-"contact": "Walter Smith"
+"contact": "Walter Smith",
+"available": "true",
+"user":"provider"
+
 },
 
-{"providerName": "Sobeys", 
+{"userName": "Sobeys Tuscany", 
 "address": "25 Tuscany Blvd NW",
 "city": "Calgary",
 "pickUpSpot": "back door",
 "products": ["bananas", "carrots", "grapes", "oranges"],
-"contact": "Andrea Martin"
+"contact": "Andrea Martin",
+"available": "true",
+"user":"provider"
 },
 
-{"providerName": "Cobbs Bakery", 
+{"userName": "Cobbs Bakery Marlborough", 
 "address": "165 Marlborough Rd NE",
 "city": "Calgary",
 "pickUpSpot": "loading bay",
 "products": ["bread", "bagels"],
-"contact": "Appolo Gonzales"
-}
+"contact": "Appolo Gonzales",
+"available": "true",
+"user":"provider"
+},
+
+{"userName": "Church 1", 
+    "address": "123 Jesus st",
+    "city": "Calgary",
+    "contact": "Mother Mary",
+    "user":"volunteer"
+    },
+
+{"userName": "Church 2", 
+    "address": "456 heven dr",
+    "city": "Calgary",  
+    "contact": "John",
+    "user":"volunteer"
+    }
 ]

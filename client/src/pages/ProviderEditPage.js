@@ -12,7 +12,7 @@ const ProviderEditPage = () => {
     
     useEffect(() => {
       const fetchProvider = async () => {
-        let fetchResult = await fetch('/api/giveAway/'+providerId)
+        let fetchResult = await fetch('/api/provider/'+providerId)
         let fetchedProvider = await fetchResult.json()
         setProvider(fetchedProvider)
       }
