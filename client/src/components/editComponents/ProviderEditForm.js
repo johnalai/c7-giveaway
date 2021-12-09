@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import "./ProviderDetail.css";
+import "../Detail.css";
 
 const ProviderEditForm = ({ existingValues, onSave }) => {
   const [userName, setProviderName] = useState("");
@@ -13,14 +13,14 @@ const ProviderEditForm = ({ existingValues, onSave }) => {
   const [productToAdd, setProductToAdd] = useState("");
   const [user,setUser] = useState("provider")
 
-  useEffect(() => {
+  useEffect(async() => {
     if (existingValues) {
-      setProviderName(existingValues.userName);
-      setAddress(existingValues.address);
-      setCity(existingValues.city);
-      setPickUpSpot(existingValues.pickUpSpot);
-      setContact(existingValues.contact);
-      setProducts(existingValues.products);
+     await setProviderName(existingValues.userName);
+     await setAddress(existingValues.address);
+     await setCity(existingValues.city);
+     await setPickUpSpot(existingValues.pickUpSpot);
+     await setContact(existingValues.contact);
+     await setProducts(existingValues.products);
     }
   }, [existingValues]);
 

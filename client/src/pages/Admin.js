@@ -10,13 +10,13 @@ function Admin(){
 
     const navigate = useNavigate()
 
-    function setSelectedProviderId(id) {
+    function setSelectedUserId(id) {
         
-        navigate('/provider/'+id)
+        navigate('/user/'+id)
     }
 
     return (
-        <AdminList setSelectedProviderId={setSelectedProviderId} />
+        <AdminList setSelectedUserId={setSelectedUserId} />
      
         
     )

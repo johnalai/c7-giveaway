@@ -1,6 +1,6 @@
 
 import { useNavigate } from "react-router-dom"
-import ProviderList from "../components/providerComponents/ProviderList"
+import ProviderList from "../components/ProviderList"
 
 const ProviderListPage = () => {
 
@@ -8,7 +8,7 @@ const ProviderListPage = () => {
 
     function setSelectedProviderId(id) {
         
-        navigate('/provider/'+id)
+        navigate('/user/'+id)
     }
 
     return (

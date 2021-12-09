@@ -1,14 +1,12 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-// import "./VolunteerDetail.css";
+import "../Detail.css";
 
 const VolunteerEditForm = ({ existingValues, onSave }) => {
   const [userName, setVolunteerName] = useState("");
   const [address, setAddress] = useState("");
   const [city, setCity] = useState("");
-
   const [contact, setContact] = useState("");
-
   const [user, setUser] = useState("volunteer");
 
   useEffect(() => {
@@ -33,9 +31,9 @@ const VolunteerEditForm = ({ existingValues, onSave }) => {
       address,
       city,
       contact,
-      //   products,
-      //   pickUpSpot,
-      //   available,
+        // products,
+        // pickUpSpot,
+        // available,
       user,
     };
     console.log("Saving volunteer", newVolunteer);

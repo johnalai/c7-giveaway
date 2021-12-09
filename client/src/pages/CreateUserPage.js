@@ -1,7 +1,7 @@
 import { useNavigate,useParams } from 'react-router-dom'
 
-import ProviderEditForm from "../components/providerComponents/ProviderEditForm"
-import VolunteerEditForm from '../components/VolunteerEditForm'
+import ProviderEditForm from "../components/editComponents/ProviderEditForm"
+import VolunteerEditForm from '../components/editComponents/VolunteerEditForm'
 
 const CreateUserPage = () => {
 

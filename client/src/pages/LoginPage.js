@@ -14,14 +14,14 @@ function onInputUpdate(event, setter) {
     setter(newValue);
   }
 
-  async function postData() {
-    let newProvider = {
-      userName,
-    password
-    };
-    console.log("Saving provider", newProvider);
-    await onSave(newProvider);
-  }
+//   async function postData() {
+//     let newProvider = {
+//       userName,
+//     password
+//     };
+//     console.log("Saving provider", newProvider);
+//     await onSave(newProvider);
+//   }
 
     return(
         <>
@@ -42,7 +42,7 @@ function onInputUpdate(event, setter) {
             />
             </div>
 
-            <button onClick={postData}>Save Provider</button>
+            {/* <button onClick={postData}>Save Provider</button> */}
         </>
     )
 }
