@@ -2,7 +2,7 @@ import {useState} from "react"
 import { Routes, Route, Link } from "react-router-dom";
 
 import ProviderListPage from './pages/ProviderListPage';
-import CreateProviderPage from './pages/CreateProviderPage';
+import CreateUserPage from './pages/CreateUserPage';
 import ProviderDetailPage from './pages/ProviderDetailPage';
 
 import './App.css';
@@ -31,7 +31,8 @@ function App() {
         <Route path="/provider/:id" element={ <ProviderDetailPage user={user}/> } />
         <Route path="/provider/:id/edit" element={ <ProviderEditPage /> } />
         <Route path="/provider/:id/edit" element={ <ProviderEditPage /> } />
-        <Route path="/register/provider" element={ <CreateProviderPage /> } />
+        <Route path="/register/provider" element={ <CreateUserPage /> } />
+        <Route path="/register/volunteer" element={ <CreateUserPage /> } />
       </Routes>         
     </div>
   );
