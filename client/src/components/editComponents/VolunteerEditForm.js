@@ -31,9 +31,9 @@ const VolunteerEditForm = ({ existingValues, onSave }) => {
       address,
       city,
       contact,
-        // products,
-        // pickUpSpot,
-        // available,
+      // products,
+      // pickUpSpot,
+      // available,
       user,
     };
     console.log("Saving volunteer", newVolunteer);
@@ -51,39 +51,24 @@ const VolunteerEditForm = ({ existingValues, onSave }) => {
       <div>
         <div className="detail-fields">
           <label className="field-title">Volunteer Name</label>
-          {url === "/register/volunteer" ? (
-            <input
-              value={userName}
-              onChange={(event) => onInputUpdate(event, setVolunteerName)}
-            />
-          ) : (
-            <div class="field-value">{userName}</div>
-          )}
+          <input
+            value={userName}
+            onChange={(event) => onInputUpdate(event, setVolunteerName)}
+          />
 
           <label className="field-title">Address</label>
-          {url === "/register/volunteer" ? (
-            <input
-              value={address}
-              onChange={(event) => onInputUpdate(event, setAddress)}
-            />
-          ) : (
-            <div className="field-value">{address}</div>
-          )}
+          <input
+            value={address}
+            onChange={(event) => onInputUpdate(event, setAddress)}
+          />
 
           <label className="field-title">City</label>
-          {url === "/register/volunteer" ? (
-            <input
-              value={city}
-              onChange={(event) => onInputUpdate(event, setCity)}
-            />
-          ) : (
-            <div class="field-value">{city}</div>
-          )}
+          <input
+            value={city}
+            onChange={(event) => onInputUpdate(event, setCity)}
+          />
         </div>
-        {/* above is edited on the registration page */}
-        {/* below is edited on the volunteer edit page */}
-
-
+     
       </div>
 
       <button onClick={postData}>Save Volunteer</button>

@@ -21,7 +21,7 @@ const UserEditPage = () => {
       
       fetchUser()
     },[userId])
-    
+  
 
     async function updateUser(updatedUser) {
         console.log('Posting to user id', userId, 'with data', updatedUser)

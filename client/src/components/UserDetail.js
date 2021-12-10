@@ -39,6 +39,7 @@ const UserDetail = ({userId}) => {
           <div className="field-title">Contact</div>
           <div className="field-value">{user?.contact}</div>
         </div>
+        <input type="textbox"></input>
       </div>
     )
   }

@@ -35,12 +35,12 @@ let user = existingValues.user
 <>
 {(user==="volunteer")&&
 <div>
-<VolunteerEditForm postData={onSave} existingValues={existingValues} />
+<VolunteerEditForm onSave={onSave} existingValues={existingValues} />
 </div>}
 
 {(user==="provider")&&
    <div>
-    <ProviderEditForm  postData={onSave} existingValues={existingValues} />
+    <ProviderEditForm  onSave={onSave} existingValues={existingValues} />
     </div>}
    
 
