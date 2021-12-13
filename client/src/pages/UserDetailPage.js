@@ -3,7 +3,7 @@ import react,{useState} from 'react'
 
 import UserDetail from "../components/UserDetail";
 
-const UserDetailPage = ({user}) => {
+const UserDetailPage = ({user, onSave}) => {
   let params = useParams();
   
 

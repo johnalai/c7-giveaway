@@ -2,9 +2,10 @@ import { useEffect, useState } from 'react'
 
 import './Detail.css'
 
-const UserDetail = ({userId}) => {
-
+const UserDetail = ({userId, onSave}) => {
+    const[message, setMessage] = useState()
     const [user, setUser] = useState()
+    const[availible,setAvailible] = useState()
     // console.log (providerId)
     useEffect(() => {
       const fetchUser = async () => {
@@ -15,6 +16,32 @@ const UserDetail = ({userId}) => {
       fetchUser()
     }, [userId])
     console.log(user)
+
+    function onInputUpdate(event, setter) {
+      let newValue = event.target.value;
+      setter(newValue);
+    }
+   
+
+    async function updateUser(updatedUser) {
+      console.log('Posting to user id', userId, 'with data', updatedUser)
+      await fetch('/api/giveAway/'+userId, {
+        method: "POST",
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(updatedUser)
+      })
+    
+  }
+    async function postData() {
+      let newData = {
+        availible,
+     message
+      };
+      console.log("Saving message", newData);
+      await updateUser(newData);
+    }
   
     return (
       <div>
@@ -42,8 +69,20 @@ const UserDetail = ({userId}) => {
           <div className="field-value">{user?.contact}</div>
           <div className="field-title">Prefered Pickup Time</div>
           <div className="field-value">{user?.pickupTime}</div>
+
+          <div className ="field-title">Message</div>
+          <input
+              type = "text box"
+              value={message}
+              onChange={(event) => onInputUpdate(event, setMessage)}
+            />
+          
         </div>
-        <input type="textbox"></input>
+        <div>
+        <button onClick={postData}>Save Message</button>
+        </div>
+        
+            {user?.message}
        
       </div>
     )
