@@ -11,17 +11,21 @@ const ProviderEditForm = ({ existingValues, onSave }) => {
   const [products, setProducts] = useState([]);
   const [available, setAvailable] = useState(false);
   const [productToAdd, setProductToAdd] = useState("");
-  const [user,setUser] = useState("provider")
+  const [user, setUser] = useState("provider");
+  const [pickupTime,setPickupTime] = useState('')
 
-  useEffect(async() => {
-    if (existingValues) {
-     await setProviderName(existingValues.userName);
-     await setAddress(existingValues.address);
-     await setCity(existingValues.city);
-     await setPickUpSpot(existingValues.pickUpSpot);
-     await setContact(existingValues.contact);
-     await setProducts(existingValues.products);
-    }
+  useEffect(() => {
+    const getData = async () => {
+      if (existingValues) {
+        await setProviderName(existingValues.userName);
+        await setAddress(existingValues.address);
+        await setCity(existingValues.city);
+        await setPickUpSpot(existingValues.pickUpSpot);
+        await setContact(existingValues.contact);
+        await setProducts(existingValues.products);
+      }
+    };
+    getData()
   }, [existingValues]);
 
   function onInputUpdate(event, setter) {
@@ -38,7 +42,8 @@ const ProviderEditForm = ({ existingValues, onSave }) => {
       products,
       pickUpSpot,
       available,
-      user
+      user,
+      pickupTime
     };
     console.log("Saving provider", newProvider);
     await onSave(newProvider);
@@ -115,6 +120,7 @@ const ProviderEditForm = ({ existingValues, onSave }) => {
               onChange={(event) => onInputUpdate(event, setPickUpSpot)}
             />
             <label className="field-title">Products</label>
+            
             <div className="field-value">
               {products.map((product, index) => (
                 <div key={index}>
@@ -137,8 +143,9 @@ const ProviderEditForm = ({ existingValues, onSave }) => {
               </div>
             </div>
 
+
             <label className="field-title" for="cb1">
-            Available
+              Available
             </label>
             <input
               className="field-value"
@@ -146,6 +153,11 @@ const ProviderEditForm = ({ existingValues, onSave }) => {
               type="checkbox"
               value={true}
               onChange={(event) => onInputUpdate(event, setAvailable)}
+            />
+            <label className="field-title">Preffered Pickup Time</label>
+            <input
+              value={pickupTime}
+              onChange={(event) => onInputUpdate(event, setPickupTime)}
             />
           </div>
         )}

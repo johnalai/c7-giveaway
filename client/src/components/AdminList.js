@@ -28,6 +28,7 @@ const AdminList = ({setSelectedUserId}) => {
 
   return (
     <div>
+
       <h2>User List</h2>
       <table style={{ margin: "auto" }}>
         <thead>

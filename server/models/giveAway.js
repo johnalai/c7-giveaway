@@ -8,10 +8,13 @@ const GiveAway = mongoose.model('GiveAway',
         "pickUpSpot": String,
         "products": [String], 
         "contact": String,
+        "pickupTime":String,
+        "message":String,
         "available":String,
         "user":String,
         "password":String,
         "typedPassword":String
+    
     }
 )
 

@@ -36,10 +36,15 @@ const UserDetail = ({userId}) => {
               ))
             }
           </ul>
+          
+ 
           <div className="field-title">Contact</div>
           <div className="field-value">{user?.contact}</div>
+          <div className="field-title">Prefered Pickup Time</div>
+          <div className="field-value">{user?.pickupTime}</div>
         </div>
         <input type="textbox"></input>
+       
       </div>
     )
   }

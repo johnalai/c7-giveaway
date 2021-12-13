@@ -5,6 +5,7 @@
 "pickUpSpot": "West entrance",
 "products": ["bread", "cabbage", "potatoes", "squash", "spring mix"],
 "contact": "James West",
+
 "available": "true",
 "user":"provider"
 
