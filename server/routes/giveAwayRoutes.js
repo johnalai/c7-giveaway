@@ -10,6 +10,7 @@ router.get('/admin',async (req,res) => {
 })
 //provider is a list with element user:provider && availible
 router.get('/provider', async (req, res) => {
+    console.log('the details list is being requested by',req.user)
     let giveAwayList = await giveAwayModel.listGiveAways({available:true, user:"provider"})
     res.send(giveAwayList)
 })
