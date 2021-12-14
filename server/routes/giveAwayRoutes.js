@@ -8,8 +8,16 @@ router.get('/admin',async (req,res) => {
     let giveAwayList = await giveAwayModel.listGiveAways({})
     res.send(giveAwayList)
 })
+
+const mustBeLoggedIn = async (req,res,next) =>{
+    if(req.user){
+        next()
+        return
+    }
+    res.sendStatus(401)
+}
 //provider is a list with element user:provider && availible
-router.get('/provider', async (req, res) => {
+router.get('/provider', mustBeLoggedIn, async (req, res) => {
     console.log('the details list is being requested by',req.user)
     let giveAwayList = await giveAwayModel.listGiveAways({available:true, user:"provider"})
     res.send(giveAwayList)

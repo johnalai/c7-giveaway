@@ -1,49 +1,52 @@
-import React,{useState} from "react";
+import { useState } from 'react'
+import { useNavigate } from "react-router-dom"
 
-function LoginPage(){
-const [userName,setUserName] = useState('')
-const [password,setPassword] = useState('')
+const LoginPage = () => {
 
+    const [username, setUsername] = useState("")
+    const [password, setPassword] = useState("")
+    const [loginError, setLoginError] = useState("")
 
+    const navigate = useNavigate()
 
+    function tryLogin() {
+        async function postLogin() {
+            const loginInfo = {
+                username: username, 
+                password: password
+            }
+            let loginResult = await fetch('/auth/login', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(loginInfo)
+            })
+            if (loginResult.ok) {
+                alert('Hello: '+username)
+                setLoginError('')
+                navigate('/')
+            }
+            else {
+                setLoginError('Login failed!')
+            }
+        }
+        postLogin()
+    }
 
-
-
-function onInputUpdate(event, setter) {
-    let newValue = event.target.value;
-    setter(newValue);
-  }
-
-//   async function postData() {
-//     let newProvider = {
-//       userName,
-//     password
-//     };
-//     console.log("Saving provider", newProvider);
-//     await onSave(newProvider);
-//   }
-
-    return(
-        <>
-  <h1>Login</h1>
-
-<div>
-    <label>User Name </label>
-  <input
-              value={userName}
-              onChange={(event) => onInputUpdate(event, setUserName)}
-            />
+    return (
+        <div className='container'>
+            <div className="row">
+                <label>Username</label>
+                <input value={username} onChange={(e) => setUsername(e.target.value)}/>
             </div>
-            <div>
-                <label> Password</label>
-  <input
-              value={password}
-              onChange={(event) => onInputUpdate(event, setPassword)}
-            />
+            <div className="row">
+                <label>Password</label>
+                <input type="password" value={password} onChange={(e) => setPassword(e.target.value)}/>
             </div>
-
-            {/* <button onClick={postData}>Save Provider</button> */}
-        </>
+            <button className="btn btn-primary" onClick={tryLogin}>Login</button>
+            { loginError !== '' && <div className='alert alert-danger'>{loginError}</div> }
+        </div>
     )
 }
 
