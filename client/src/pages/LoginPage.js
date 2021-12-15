@@ -1,7 +1,9 @@
-import { useState } from 'react'
+import { useState,useContext } from 'react'
 import { useNavigate } from "react-router-dom"
+import { UserContext } from '../components/UserContext'
 
 const LoginPage = () => {
+    const {currentUser,setCurrentUser}=useContext(UserContext)
 
     const [username, setUsername] = useState("")
     const [password, setPassword] = useState("")
@@ -32,8 +34,11 @@ const LoginPage = () => {
             }
         }
         postLogin()
+        setCurrentUser(username)
+      
+      
     }
-
+    
     return (
         <div className='container'>
             <div className="row">

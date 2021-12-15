@@ -12,8 +12,7 @@ const GiveAway = mongoose.model('GiveAway',
         "message":String,
         "available":String,
         "user":String,
-        "password":String,
-        "typedPassword":String
+
     
     }
 )

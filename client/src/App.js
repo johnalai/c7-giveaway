@@ -12,6 +12,7 @@ import UserEditPage from "./pages/EditPage";
 // import ProviderDetailPage from "./pages/ProviderDetailPage";
 // import VolunteerEditPage from "./pages/VolunteerEditPage";
 import UserDetailPage from "./pages/UserDetailPage";
+import { UserContext } from "./components/UserContext";
 
 
 import "./App.css";
@@ -38,18 +39,19 @@ function App() {
         <Link to="/admin"> Admin</Link>
         <Link to="/login"> Login</Link>
       </nav>
+      <UserContext.Provider value={{currentUser,setCurrentUser}}>
       <Routes>
         <Route path="/" element={<LandingPage />} />
         <Route path="/admin" element={<Admin />} />
         <Route path="/provider-list" element={<ProviderListPage />} />
         <Route path="/register" element={<Register />} />
         <Route path = "/login" element ={<LoginPage />}/>
-        <Route path="/user/:id" element={<UserDetailPage user={currentUser}/>}/>
-      
+        <Route path="/user/:id" element={<UserDetailPage />}/>
         <Route path="/user/:id/edit" element={<UserEditPage />} />
         <Route path="/register/provider" element={<CreateUserPage />} />
         <Route path="/register/volunteer" element={<CreateUserPage />} />
       </Routes>
+      </UserContext.Provider>
     </div>
   );
 }

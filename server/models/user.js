@@ -1,8 +1,9 @@
 const mongoose = require('./mongooseDb')
 
 const User = mongoose.model('User', {
-    username: String,
-    password: String
+    userName: String,
+    password: String,
+    user: String
 })
 
 async function createUser(userData) {
