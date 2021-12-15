@@ -2,12 +2,18 @@ const mongoose = require('./mongooseDb')
 
 const GiveAway = mongoose.model('GiveAway', 
     {
-        "providerName": String, 
+        "userName": String, 
         "address": String,
         "city": String,
         "pickUpSpot": String,
         "products": [String], 
-        "contact": String
+        "contact": String,
+        "pickupTime":String,
+        "message":String,
+        "available":String,
+        "user":String,
+
+    
     }
 )
 
@@ -17,8 +23,8 @@ async function createGiveAway(giveAwayData) {
     return createdGiveAway.id
 }
 
-async function listGiveAways() {
-    return GiveAway.find({})
+async function listGiveAways(param) {
+    return GiveAway.find(param)
 }
 
 async function findById(id) {

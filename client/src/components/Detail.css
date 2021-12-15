@@ -1,6 +1,7 @@
 .detail-fields {
     display: grid;
-    grid-template-columns: auto auto;
+    grid-template-columns: 1fr 1fr;
+    
 }
 
 .field-title {
@@ -12,4 +13,9 @@
 .field-value {
     text-align: left;
     margin: 0em;
+}
+
+.edit{
+    display:grid;
+    grid-template-columns: auto auto;
 }

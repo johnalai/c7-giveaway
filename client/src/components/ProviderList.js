@@ -13,7 +13,7 @@ const ProviderList = ({setSelectedProviderId}) => {
   useEffect(() => {
     async function fetchData() {
       console.log('Fetching Provider data!')
-      let fetchResult = await fetch("/api/giveAway")
+      let fetchResult = await fetch("/api/provider")
       let ProviderList = await fetchResult.json()
       setProviders(ProviderList)
     }
@@ -43,7 +43,7 @@ const ProviderList = ({setSelectedProviderId}) => {
               return <ProviderRow 
                 key={index} 
                 onProviderSelected={() => selectProvider(provider._id)} 
-                providerName={provider.providerName} 
+                providerName={provider.userName} 
                 address={provider.address} 
                 city={provider.city} 
               />
