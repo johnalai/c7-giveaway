@@ -8,6 +8,7 @@ const VolunteerEditForm = ({ existingValues, onSave }) => {
   const [city, setCity] = useState("");
   const [contact, setContact] = useState("");
   const [user, setUser] = useState("volunteer");
+  const [password, setPassword] = useState("");
 
   useEffect(() => {
     if (existingValues) {
@@ -35,6 +36,7 @@ const VolunteerEditForm = ({ existingValues, onSave }) => {
       // pickUpSpot,
       // available,
       user,
+      password,
     };
     console.log("Saving volunteer", newVolunteer);
     await onSave(newVolunteer);
@@ -66,9 +68,19 @@ const VolunteerEditForm = ({ existingValues, onSave }) => {
           <input
             value={city}
             onChange={(event) => onInputUpdate(event, setCity)}
-          />
+            />
+
+
+            {url === "/register/volunteer" && (
+            <>
+              <label className="field-title">Password</label>
+              <input
+                value={password}
+                onChange={(event) => onInputUpdate(event, setPassword)}
+              />
+            </>
+          )}
         </div>
-     
       </div>
 
       <button onClick={postData}>Save Volunteer</button>

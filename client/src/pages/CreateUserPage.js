@@ -7,16 +7,23 @@ const CreateUserPage = () => {
 
     let navigate = useNavigate()
 
-    async function createUser(newProvider) {
+    async function createUser(newUser) {
       console.log('create user')
         await fetch('/api/giveAway', {
           method: "POST",
           headers: {
               'Content-Type': 'application/json'
           },
-          body: JSON.stringify(newProvider)
+          body: JSON.stringify(newUser)
         })
-        navigate('/')
+        await fetch('/auth/register', {
+          method: "POST",
+          headers: {
+              'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(newUser)
+        })
+        navigate('/login')
       }
 
     let url = window.location.pathname;

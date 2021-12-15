@@ -27,7 +27,7 @@ const LoginPage = () => {
             if (loginResult.ok) {
                 alert('Hello: '+username)
                 setLoginError('')
-                navigate('/')
+                navigate('/user/:id')
             }
             else {
                 setLoginError('Login failed!')

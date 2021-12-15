@@ -8,9 +8,9 @@ const User = require('../models/user')
 const router = express.Router()
 
 passport.use(new LocalStrategy(
-    function(username, password, done) {
-        console.log('Passport is trying to verify a user', username)
-        User.findUserByUsername(username)
+    function(userName, password, done) {
+        console.log('Passport is trying to verify a user', userName)
+        User.findUserByUsername(userName)
         .then((user) => {
             if (!user || (user.password !== password)) {
                 done(null, false, {message: 'Username not found or password mismatch'})
@@ -39,6 +39,11 @@ passport.deserializeUser(function(id, done) {
     })
     .catch(done)
 });
+router.post('/register', async (req, res) => {
+    let newUser = req.body
+    let createdId = await User.createUser(newUser)
+    res.send(createdId)
+})
 
 router.post('/login', passport.authenticate('local'), function(req, res) {
   // If this function gets called, authentication was successful.

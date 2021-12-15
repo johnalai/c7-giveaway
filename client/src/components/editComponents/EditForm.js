@@ -29,7 +29,7 @@ const EditForm = ({ existingValues, onSave }) => {
 //   }
 
 let user = existingValues.user
-
+let url = window.location.pathname;
 
   return(
 <>
@@ -42,7 +42,8 @@ let user = existingValues.user
    <div>
     <ProviderEditForm  onSave={onSave} existingValues={existingValues} />
     </div>}
-   
+
+  
 
 </>
   )
