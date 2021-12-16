@@ -24,6 +24,8 @@
   color: white;
 }
 
+
+
 .App-link {
   color: #61dafb;
 }
@@ -35,4 +37,33 @@
   to {
     transform: rotate(360deg);
   }
+}
+/* .nav{
+  display:grid;
+  grid-template-rows:10m;
+  
+} */
+
+.nav {
+  background-color: #bbbb;
+  margin: 2rem auto;
+  width: min(90%, 75rem);
+  display: grid;
+  grid-auto-flow: column;
+  align-items: center;
+  /* justify-content: center; */
+  font-size: calc(10px + 2vmin);
+  color: rgb(184, 29, 29);
+  gap: 2em;
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
 }

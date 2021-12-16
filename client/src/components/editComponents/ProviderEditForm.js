@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import "./ProviderDetail.css";
+import "../Detail.css";
 
 const ProviderEditForm = ({ existingValues, onSave }) => {
   const [userName, setProviderName] = useState("");
@@ -11,8 +11,9 @@ const ProviderEditForm = ({ existingValues, onSave }) => {
   const [products, setProducts] = useState([]);
   const [available, setAvailable] = useState(false);
   const [productToAdd, setProductToAdd] = useState("");
-//   const [user, setUser] = useState("provider");
-  const [pickupTime,setPickupTime] = useState('')
+  const [user, setUser] = useState("provider");
+  const [pickupTime, setPickupTime] = useState("Normal store hours");
+  const [password, setPassword] = useState("");
 
   useEffect(() => {
     const getData = async () => {
@@ -25,7 +26,7 @@ const ProviderEditForm = ({ existingValues, onSave }) => {
         await setProducts(existingValues.products);
       }
     };
-    getData()
+    getData();
   }, [existingValues]);
 
   function onInputUpdate(event, setter) {
@@ -42,8 +43,9 @@ const ProviderEditForm = ({ existingValues, onSave }) => {
       products,
       pickUpSpot,
       available,
-    //   user,
-      pickupTime
+      user,
+      pickupTime,
+      password,
     };
     console.log("Saving provider", newProvider);
     await onSave(newProvider);
@@ -106,9 +108,10 @@ const ProviderEditForm = ({ existingValues, onSave }) => {
         </div>
         {/* above is edited on the registration page */}
         {/* below is edited on the provider edit page */}
-
-        {(url === "/provider/", { id }, "/edit") && (
-          <div className="detail-fields">
+        <div className="detail-fields">
+        {(url !== "/register/provider") && (
+          
+            <>
             <label className="field-title">Contact</label>
             <input
               value={contact}
@@ -120,7 +123,7 @@ const ProviderEditForm = ({ existingValues, onSave }) => {
               onChange={(event) => onInputUpdate(event, setPickUpSpot)}
             />
             <label className="field-title">Products</label>
-            
+
             <div className="field-value">
               {products.map((product, index) => (
                 <div key={index}>
@@ -143,7 +146,6 @@ const ProviderEditForm = ({ existingValues, onSave }) => {
               </div>
             </div>
 
-
             <label className="field-title" for="cb1">
               Available
             </label>
@@ -154,15 +156,27 @@ const ProviderEditForm = ({ existingValues, onSave }) => {
               value={true}
               onChange={(event) => onInputUpdate(event, setAvailable)}
             />
-            <label className="field-title">Preferred Pickup Time</label>
+            <label className="field-title">Preffered Pickup Time</label>
             <input
               value={pickupTime}
               onChange={(event) => onInputUpdate(event, setPickupTime)}
             />
-          </div>
-        )}
-      </div>
 
+          </>
+          
+        )}
+ {url === "/register/provider" && (
+        <>
+          <label className="field-title">Password</label>
+          <input
+            value={password}
+            onChange={(event) => onInputUpdate(event, setPassword)}
+          />
+        </>
+      )}
+      </div>
+</div>
+     
       <button onClick={postData}>Save Provider</button>
     </div>
   );

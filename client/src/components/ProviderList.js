@@ -1,15 +1,26 @@
 import { useEffect, useState } from 'react'
+import { useNavigate } from 'react-router'
 
-const ProviderRow = ({providerName, address, city, onProviderSelected }) => (
+const ProviderRow = ({
+  providerName, 
+  address, 
+  city, 
+  onProviderSelected,
+  deleteProvider,
+ }) => (
   <tr onClick={() => onProviderSelected()}>
     <td>{providerName}</td>
     <td>{address}</td>
     <td>{city}</td>
+    <td>
+      <button className="btn-sm btn-danger" onClick={() => deleteProvider()}>Delete</button>
+    </td>
   </tr>
 )
 
 const ProviderList = ({setSelectedProviderId}) => {
   const [Providers, setProviders] = useState([])
+  const navigate = useNavigate()
   useEffect(() => {
     async function fetchData() {
       console.log('Fetching Provider data!')
@@ -25,6 +36,12 @@ const ProviderList = ({setSelectedProviderId}) => {
     setSelectedProviderId(id)
   }
 
+  async function deleteProvider(id) {
+    await fetch('/api/giveAway/' + id, {
+        method: 'DELETE',
+    })
+    navigate('/')
+}
 
   return (
     <div>
@@ -46,6 +63,9 @@ const ProviderList = ({setSelectedProviderId}) => {
                 providerName={provider.providerName} 
                 address={provider.address} 
                 city={provider.city} 
+                deleteProvider={() =>
+                  deleteProvider(provider._id)
+                }
               />
             })
           }

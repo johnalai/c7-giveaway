@@ -7,7 +7,7 @@ const ProviderDetailPage = () => {
   return (
      <div>
        <ProviderDetail providerId={params.id}/>
-       <Link to="edit"> EDIT </Link>
+       <Link className="btn btn-primary" to="edit"> Edit </Link>
      </div>
    ) 
 }

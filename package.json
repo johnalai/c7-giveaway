@@ -4,13 +4,20 @@
   "description": "Food Donation Program",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "install": "npm run install-client && npm run install-server",
+    "install-client": "cd client && npm install && cd ..",
+    "install-server": "cd server && npm install && cd ..",
+    "build": "npm run build-client",
+    "build-client": "cd client && npm run build && cd ..",
+    "start": "npm run start-server",
+    "start-server": "cd server && npm start && cd .."
   },
   "author": "Derek, Prince, John",
   "license": "ISC",
   "dependencies": {
     "express": "^4.17.1",
-    "mongoose": "^6.0.13",
-    "react-router-dom": "^6.0.2"
+    "mongoose": "^6.1.1",
+    "passport-local": "^1.0.0",
+    "react-router-dom": "^6.1.1"
   }
 }

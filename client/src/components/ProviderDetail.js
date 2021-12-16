@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 
-import './ProviderDetail.css'
+// simport './ProviderDetail.css'
 
 const ProviderDetail = ({providerId}) => {
 
@@ -17,7 +17,7 @@ const ProviderDetail = ({providerId}) => {
   
     return (
       <div>
-        <h2>Provider Detail</h2>
+        <h2>Provider Details</h2>
         <div className="detail-fields">
           <div className="field-title">Name</div>
           <div className="field-value">{provider?.providerName}</div>

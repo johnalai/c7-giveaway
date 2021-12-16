@@ -30,9 +30,14 @@ async function update(id, newProviderData) {
         returnDocument: "after"
     })
 }
+
+async function deleteGiveAway(id) {
+    return GiveAway.findByIdAndDelete(id)
+}
 module.exports = {
     createGiveAway,
     listGiveAways,
     findById,
-    update
+    update,
+    deleteGiveAway
 }
