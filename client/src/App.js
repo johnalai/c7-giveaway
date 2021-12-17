@@ -16,13 +16,14 @@ import { UserContext } from "./components/UserContext";
 
 
 import "./App.css";
+import LogOut from "./components/Logout";
 
 
 
 
 
 function App() {
- const[currentUser,setCurrentUser]=useState("admin")
+ const[currentUser,setCurrentUser]=useState({})
  //this is a different user than provider//volunteer, this will be the current user ID after login
 
   return (
@@ -54,6 +55,7 @@ function App() {
       <UserContext.Provider value={{currentUser,setCurrentUser}}>
       <Routes>
         <Route path="/" element={<LandingPage />} />
+        <Route path ="/logout" element={<LogOut/>}/>
         <Route path="/admin" element={<Admin />} />
         <Route path="/provider-list" element={<ProviderListPage />} />
         <Route path="/register" element={<Register />} />

@@ -10,7 +10,7 @@ router.get('/admin',async (req,res) => {
 })
 
 const mustBeLoggedIn = async (req,res,next) =>{
-    if(req.user){
+    if(req.user !== undefined){
         next()
         return
     }
