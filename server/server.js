@@ -9,8 +9,17 @@ const app = express()
 const port = 5000
 
 
+// app.use(session({ secret: "cats" }))
+app.use(session({
+  secret: "cats",
+  name: "cookie_name",
+  store: "sessionStore", // connect-mongo session store
+  proxy: true,
+  resave: true,
+  saveUninitialized: true
+}));
 
-app.use(session({ secret: "cats" }))
+
 app.use(express.json())
 app.use(passport.initialize())
 app.use(passport.session())

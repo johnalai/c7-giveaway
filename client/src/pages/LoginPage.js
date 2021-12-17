@@ -13,7 +13,7 @@ const LoginPage = () => {
 
   useEffect(() => {
    
-    alert("Hello: " + currentUser?.username);
+    
     if (currentUser?.username) {
       navigate("/user/" + currentUser.id);
     }
@@ -33,7 +33,8 @@ const LoginPage = () => {
         body: JSON.stringify(loginInfo),
       });
 
-      if (loginResult.ok) {
+      if (loginResult.ok) 
+        {alert("Hello: " +username);
         async function fetchUser() {
           let fetchResult = await fetch("/auth/loggedInUser");
           let fetchedUser = await fetchResult.json();
