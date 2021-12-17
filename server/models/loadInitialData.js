@@ -1,5 +1,5 @@
 let giveAwayList = require('./giveAwayList.json')
-let giveAwayModel = require('./giveAway')
+let giveAwayModel = require('./user')
 
 giveAwayList.forEach(async (provider) => {
     console.log('Creating giveAway:', provider.providerName)

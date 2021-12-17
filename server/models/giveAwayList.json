@@ -1,4 +1,8 @@
 [
+{"username":"Alpha Lamb",
+"password":"alphalamb",
+"user":"admin"},
+
 {"username": "Calgary Co-Op Crowfoot", 
 "address": "1524 Crowfoot Rise NW",
 "password":"coop",
@@ -66,7 +70,7 @@
     "contact": "John",
     "user":"volunteer"
     },
-    
+
 {"username": "Goodwill", 
     "password":"goodwill",
 
