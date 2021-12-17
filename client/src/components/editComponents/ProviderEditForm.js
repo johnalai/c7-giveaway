@@ -24,6 +24,7 @@ const ProviderEditForm = ({ existingValues, onSave }) => {
         await setPickUpSpot(existingValues.pickUpSpot);
         await setContact(existingValues.contact);
         await setProducts(existingValues.products);
+        await setPassword(existingValues.password);
       }
     };
     getData();

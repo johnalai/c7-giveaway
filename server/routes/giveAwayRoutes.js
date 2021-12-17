@@ -2,7 +2,7 @@
 const express = require('express')
 const router = express.Router()
 
-const giveAwayModel = require('../models/giveAway')
+const giveAwayModel = require('../models/user')
 
 router.get('/admin',async (req,res) => {
     let giveAwayList = await giveAwayModel.listGiveAways({})
@@ -39,11 +39,11 @@ router.get('/volunteer/:id', async (req, res) => {
     res.send(provider)
 })
 //giveAway is a list of all users
-router.post('/giveAway', async (req, res) => {
-    let newProvider = req.body
-    let createdId = await giveAwayModel.createGiveAway(newProvider)
-    res.send(createdId)
-})
+// router.post('/giveAway', async (req, res) => {
+//     let newProvider = req.body
+//     let createdId = await giveAwayModel.createGiveAway(newProvider)
+//     res.send(createdId)
+// })
 router.get('/giveAway/:id', async (req, res) => {
     let id =req.params.id
     let provider = await giveAwayModel.findById(id)

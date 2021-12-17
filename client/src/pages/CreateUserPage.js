@@ -9,13 +9,13 @@ const CreateUserPage = () => {
 
     async function createUser(newUser) {
       console.log('create user')
-        await fetch('/api/giveAway', {
-          method: "POST",
-          headers: {
-              'Content-Type': 'application/json'
-          },
-          body: JSON.stringify(newUser)
-        })
+        // await fetch('/api/giveAway', {
+        //   method: "POST",
+        //   headers: {
+        //       'Content-Type': 'application/json'
+        //   },
+        //   body: JSON.stringify(newUser)
+        // })
         await fetch('/auth/register', {
           method: "POST",
           headers: {
