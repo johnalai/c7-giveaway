@@ -62,7 +62,7 @@ async function update(id, newProviderData) {
     })
 }
 async function listGiveAways(param) {
-    return GiveAway.find(param)
+    return User.find(param)
 }
 
 module.exports = {

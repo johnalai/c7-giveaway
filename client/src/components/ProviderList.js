@@ -43,7 +43,7 @@ const ProviderList = ({setSelectedProviderId}) => {
               return <ProviderRow 
                 key={index} 
                 onProviderSelected={() => selectProvider(provider._id)} 
-                providerName={provider.userName} 
+                providerName={provider.username} 
                 address={provider.address} 
                 city={provider.city} 
               />
