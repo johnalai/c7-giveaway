@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom";
 import "../Detail.css";
 
 const VolunteerEditForm = ({ existingValues, onSave }) => {
-  const [userName, setVolunteerName] = useState("");
+  const [username, setVolunteerName] = useState("");
   const [address, setAddress] = useState("");
   const [city, setCity] = useState("");
   const [contact, setContact] = useState("");
@@ -12,7 +12,7 @@ const VolunteerEditForm = ({ existingValues, onSave }) => {
 
   useEffect(() => {
     if (existingValues) {
-      setVolunteerName(existingValues.userName);
+      setVolunteerName(existingValues.username);
       setAddress(existingValues.address);
       setCity(existingValues.city);
       //   setPickUpSpot(existingValues.pickUpSpot);
@@ -28,7 +28,7 @@ const VolunteerEditForm = ({ existingValues, onSave }) => {
 
   async function postData() {
     let newVolunteer = {
-      userName,
+      username,
       address,
       city,
       contact,
@@ -54,7 +54,7 @@ const VolunteerEditForm = ({ existingValues, onSave }) => {
         <div className="detail-fields">
           <label className="field-title">Volunteer Name</label>
           <input
-            value={userName}
+            value={username}
             onChange={(event) => onInputUpdate(event, setVolunteerName)}
           />
 

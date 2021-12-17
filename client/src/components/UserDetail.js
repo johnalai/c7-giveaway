@@ -48,7 +48,7 @@ const UserDetail = ({userId, onSave}) => {
         <h2>Details</h2>
         <div className="detail-fields">
           <div className="field-title">Name</div>
-          <div className="field-value">{user?.userName}</div>
+          <div className="field-value">{user?.username}</div>
           <div className="field-title">Address</div>
           <div className="field-value">{user?.address}</div>
           <div className="field-title">City</div>

@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react'
 
-const UserRow = ({userName, address, city, onUserSelected }) => (
+const UserRow = ({username, address, city, onUserSelected }) => (
   <tr onClick={() => onUserSelected()}>
-    <td>{userName}</td>
+    <td>{username}</td>
     <td>{address}</td>
     <td>{city}</td>
   </tr>
@@ -44,7 +44,7 @@ const AdminList = ({setSelectedUserId}) => {
               return <UserRow 
                 key={index} 
                 onUserSelected={() => selectUser(user._id)} 
-                userName={user.userName} 
+                username={user.username} 
                 address={user.address} 
                 city={user.city} 
               />

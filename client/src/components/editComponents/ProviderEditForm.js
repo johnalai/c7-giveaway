@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom";
 import "../Detail.css";
 
 const ProviderEditForm = ({ existingValues, onSave }) => {
-  const [userName, setProviderName] = useState("");
+  const [username, setProviderName] = useState("");
   const [address, setAddress] = useState("");
   const [city, setCity] = useState("");
   const [pickUpSpot, setPickUpSpot] = useState("");
@@ -18,12 +18,13 @@ const ProviderEditForm = ({ existingValues, onSave }) => {
   useEffect(() => {
     const getData = async () => {
       if (existingValues) {
-        await setProviderName(existingValues.userName);
+        await setProviderName(existingValues.username);
         await setAddress(existingValues.address);
         await setCity(existingValues.city);
         await setPickUpSpot(existingValues.pickUpSpot);
         await setContact(existingValues.contact);
         await setProducts(existingValues.products);
+        await setPassword(existingValues.password);
       }
     };
     getData();
@@ -36,7 +37,7 @@ const ProviderEditForm = ({ existingValues, onSave }) => {
 
   async function postData() {
     let newProvider = {
-      userName,
+      username,
       address,
       city,
       contact,
@@ -79,11 +80,11 @@ const ProviderEditForm = ({ existingValues, onSave }) => {
           <label className="field-title">Provider Name</label>
           {url === "/register/provider" ? (
             <input
-              value={userName}
+              value={username}
               onChange={(event) => onInputUpdate(event, setProviderName)}
             />
           ) : (
-            <div class="field-value">{userName}</div>
+            <div class="field-value">{username}</div>
           )}
 
           <label className="field-title">Address</label>
