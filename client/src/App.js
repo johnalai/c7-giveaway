@@ -36,9 +36,21 @@ function App() {
         <Link to="/">Home</Link>
         <Link to="/register">Register</Link>
         <Link to="/provider-list">Provider List</Link>
-        <Link to="/admin"> Admin</Link>
+        {currentUser.user==="admin"&&
+        <Link to="/admin"> Admin</Link>}
+
         <Link to="/login"> Login</Link>
+        <Link to="/logout"> Logout</Link>  
       </nav>
+      <div>
+      {currentUser.username}
+<div>
+{currentUser.user}
+</div>
+
+      </div>
+    
+     
       <UserContext.Provider value={{currentUser,setCurrentUser}}>
       <Routes>
         <Route path="/" element={<LandingPage />} />
