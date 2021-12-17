@@ -58,4 +58,12 @@ router.get('/loggedInUser', function(req, res) {
     res.send(req.user)
 })
 
+router.get('/logout', function(req, res){
+    console.log('Req.user is', req.user)
+    req.user=''
+    console.log('Req.user is', req.user)
+    req.logout();
+    res.redirect('/');
+  });
+
 module.exports = router
