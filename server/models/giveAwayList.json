@@ -1,6 +1,7 @@
 [
-{"userName": "Calgary Co-Op Crowfoot", 
+{"username": "Calgary Co-Op Crowfoot", 
 "address": "1524 Crowfoot Rise NW",
+"password":"coop",
 "city": "Calgary",
 "pickUpSpot": "West entrance",
 "products": ["bread", "cabbage", "potatoes", "squash", "spring mix"],
@@ -11,7 +12,9 @@
 
 },
 
-{"userName": "Safeway Brentwood", 
+{"username": "Safeway Brentwood", 
+"password":"safeway",
+
 "address": "235 Brentwood Dr NW",
 "city": "Calgary",
 "pickUpSpot": "back door",
@@ -22,7 +25,9 @@
 
 },
 
-{"userName": "Sobeys Tuscany", 
+{"username": "Sobeys Tuscany", 
+    "password":"sobeys",
+
 "address": "25 Tuscany Blvd NW",
 "city": "Calgary",
 "pickUpSpot": "back door",
@@ -32,7 +37,9 @@
 "user":"provider"
 },
 
-{"userName": "Cobbs Bakery Marlborough", 
+{"username": "Cobbs Bakery Marlborough", 
+    "password":"cobbs",
+
 "address": "165 Marlborough Rd NE",
 "city": "Calgary",
 "pickUpSpot": "loading bay",
@@ -42,17 +49,30 @@
 "user":"provider"
 },
 
-{"userName": "Church 1", 
+{"username": "St.marys cathedral",
+    "password":"mary",
+ 
     "address": "123 Jesus st",
     "city": "Calgary",
     "contact": "Mother Mary",
     "user":"volunteer"
     },
 
-{"userName": "Church 2", 
+{"username": "west minsterabbey 2", 
+    "password":"minster",
+
     "address": "456 heven dr",
     "city": "Calgary",  
     "contact": "John",
+    "user":"volunteer"
+    },
+    
+{"username": "Goodwill", 
+    "password":"goodwill",
+
+    "address": "around",
+    "city": "Calgary",  
+    "contact": "william",
     "user":"volunteer"
     }
 ]
