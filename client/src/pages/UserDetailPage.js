@@ -17,7 +17,7 @@ const UserDetailPage = ({user, onSave}) => {
       <div>
         <UserDetail userId={params.id} />
         {/* shows edit button if userid=user id, user id needs to be implemented */}
-        {(currentUser==="derek")&&
+        {(currentUser.id===params.id||currentUser.user==="admin")&&
           <Link to="edit"> EDIT </Link>}
 
       </div>
